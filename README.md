@@ -10,10 +10,10 @@ Here are steps to run the Kafka, splunk and fluent servers.
 		Splunk server will be accessible after image creating.
 		- https://<server>:8000
 
-Once, all server are up and running. Push the logs into Kafka Producer and fluentd will pull the log from the broker which is added in the configuration file.
+Once, all server are up and running. Push the logs into Kafka Producer and fluentd will pull the log from the broker.
 
 Before pushing a logs in the kafka server. Please create a topic and partitions.
-Access the kafka image wth command docker exec -ti --user root <container_id> bash
+Access the kafka image with command docker exec -ti --user root <container_id> bash
 
 Once you enter . Create a topic with the help below command 
 kafka-topics --create --topic fluentd-poc --bootstrap-server localhost:39092
