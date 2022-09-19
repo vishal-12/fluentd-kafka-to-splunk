@@ -1,0 +1,24 @@
+---
+version: '2'
+services:
+  fluentd:
+    image: demo01
+    environment:
+      FLUENTD_CONF: fluentd.conf
+
+    ports:
+      - 9880:9880
+      - 24224:24224
+      - 9292:9292
+    volumes:
+      - /tmp:/fluentd/etc
+      - /tmp:/etc/fluent
+
+  splunk:
+    image: splunk/splunk:latest
+    environment:
+      SPLUNK_PASSWORD: "2getin2itRJG!"
+      SPLUNK_START_ARGS: "--accept-license"
+    ports:
+      - 8000:8000
+      - 8088:8088
